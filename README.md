@@ -152,7 +152,7 @@ the secret is lost.
 
 | source | what it is | cadence | first capture |
 | --- | --- | --- | --- |
-| `iccat.vessels.record` | the ICCAT Record of Vessels, all three exports — 61,109 vessels across active, inactive and inoperative | monthly | pending |
+| `iccat.vessels.record` | the ICCAT Record of Vessels, all three exports — 61,109 vessels across active, inactive and inoperative | monthly | 2026-09 |
 
 ## The data you get
 
@@ -183,8 +183,9 @@ it a thousandfold.
 ## Storage
 
 `storage: object`, because `personal_data: present` requires it — the engine
-refuses any other combination, and it is right to. About 11.3 MB per capture
-across the three exports; the derived table is roughly 2.8 MB a month.
+refuses any other combination, and it is right to. The first capture wrote
+4,380,450 + 6,673,620 + 252,050 bytes to R2; the derived table is 546,495
+observations at 2.8 MB a month.
 
 ## Adding a source
 
@@ -209,10 +210,9 @@ wss derive --parsers parsers.iccat_vessel_v1
 python examples/visualize.py
 ```
 
-The committed charts were generated from a full probe of all three exports on
-**2026-09-11**. `derived/` is empty until the first capture, because
-`storage: object` means the raw cannot be written without R2 credentials and a
-hand-made manifest would be a fabricated provenance trail.
+`raw/` is empty on purpose: `storage: object` puts the three exports in R2
+(11.3 MB for the first capture) and only the manifest, the derived table and
+the charts live in git.
 
 ## Going live
 
