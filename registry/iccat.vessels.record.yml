@@ -1,0 +1,83 @@
+# Who is allowed to fish tuna in the Atlantic, and the 52 columns ICCAT deletes
+# the moment they stop being allowed.
+#
+# WHY THIS PERISHES, and it is NOT that the row disappears. ICCAT keeps the
+# vessel. It publishes the same fleet in three exports with zero serial-number
+# overlap -- a vessel is in exactly one and MOVES between them:
+#
+#   vStatus=1  ACTIVE        14,685 rows, 87 columns
+#   vStatus=2  INACTIVE      44,980 rows, 35 columns
+#   vStatus=3  INOPERATIVE    1,444 rows, 35 columns
+#
+# Diffing the three headers: 57 columns are on the active export and not on the
+# exit exports, three of those are RENAMES (VMSSysCode -> VmsComSysCode,
+# OwCtryCode -> OwCountry, OpCtryCode -> OpCountry) and 54 are genuinely
+# deleted -- 36 authorisation dates (twelve fisheries x _DtFrom/_DtTo/
+# _DtNotif), the same twelve _ddIF identifiers, BFEc_CatchQuota and
+# BFEc_YearQuota (438 vessels, 25,022,393 kg), P20m_RM and TROP_RM, FlagRepCode
+# and FlagChartTo.
+#
+# AND THE TRANSITION HAS NO DATE. 44,980 vessels are marked `inactive` and not
+# one says when. INOPERATIVE keeps a reason (DEST 812, DELI 423, SCRP 198,
+# SUNK 11) and still no date. So the date a vessel stopped being authorised
+# exists nowhere and only two captures can produce it.
+#
+# FLAG-HOPPING IS ONE FIELD DEEP. FlagVesCodePrev holds exactly one previous
+# flag (238 of 14,685 active) and VesselNamePrev one previous name (4,185,
+# 28.5%). Reflagging is the classic IUU evasion; a vessel that hops twice
+# between captures overwrites its own record. Monthly capture makes a chain.
+#
+# NO HIDDEN FILTER, CHECKED. vStatus=1, vessAll=True&vStatus=1 and
+# vessAll=False&vStatus=1 return byte-identical 4,380,450-byte files with the
+# same 14,685 rows -- vessAll is ignored. Last-Modified equals the request
+# time because the export is generated per request, so it says nothing about
+# freshness. There is no robots.txt on www.iccat.int (404).
+#
+# THE OPEN QUESTION THIS EXISTS TO CLOSE. 14,492 of the 14,685 active vessels
+# hold only EXPIRED authorisation windows and nothing in the file is dated
+# 2026. From one capture there is no way to tell a stalled register from an
+# annual cycle not yet entered. See docs/research-questions.md, F2.
+source_id: iccat.vessels.record
+status: active
+cadence: monthly
+schema_id: iccat-vessel.v1
+
+publisher: ICCAT — International Commission for the Conservation of Atlantic Tunas
+publisher_tier: first_party
+destroys_own_history: true
+licence: "ICCAT publishes the Record of Vessels under Rec. 25-12 as a public compliance register. No robots.txt on the host (404); no stated redistribution restriction."
+personal_data: present
+storage: object
+
+notes: >-
+  Three exports, ~11.3 MB per capture. Content-Type is
+  application/vnd.ms-excel and the body is tab-separated CP1252 text -- it
+  raises on byte 0xdc as UTF-8 -- which is why the gate matches on excel and
+  the parser decodes cp1252 after trying UTF-8 strictly. ICCAT also misspells
+  its own header: the inoperative export writes Op--Name where the others
+  write OpName, and 436 of its 1,444 rows carry an operator. OwName/OpName and their
+  addresses are filled on 48.4% of active rows and are a mix of companies
+  (Rozafa shpk, INTERA COMPANY SA) and individuals (HARROLL WEAVER, J GREER).
+  Raw goes to object storage complete; derived fingerprints individuals and
+  names companies in clear -- see parsers/iccat_vessel_v1.py.
+
+endpoints:
+  - url: "https://www.iccat.int/en/Vesexport.asp?vessAll=True&vStatus=1"
+    delay_seconds: 5
+    timeout_seconds: 180
+  - url: "https://www.iccat.int/en/Vesexport.asp?vStatus=2"
+    delay_seconds: 5
+    timeout_seconds: 180
+  - url: "https://www.iccat.int/en/Vesexport.asp?vStatus=3"
+    delay_seconds: 5
+    timeout_seconds: 180
+
+gates:
+  expect_status: 200
+  # The smallest of the three is the inoperative export at 252,050 bytes.
+  # Half of that, so a truncated response or an ASP error page fails rather
+  # than being archived as a month in which the fleet collapsed.
+  min_bytes: 126000
+  content_type_any: [excel]
+  must_contain: ["ICCATSerialNo", "VesselName", "FlagVesCode"]
+  max_shrink_pct: 30

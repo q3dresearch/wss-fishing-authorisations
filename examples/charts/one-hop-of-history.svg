@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="580" viewBox="0 0 940 580">
+<rect x="0.0" y="0.0" width="940.0" height="580.0" fill="#fcfcfb" rx="0"/>
+<text x="56.0" y="48.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="20" fill="#0b0b0b" text-anchor="start" font-weight="600">ICCAT keeps exactly one previous flag, and one previous name</text>
+<text x="56.0" y="74.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#52514e" text-anchor="start" font-weight="normal">Reflagging is the standard way a vessel escapes a sanction. The record holds a single hop.</text>
+<text x="56.0" y="96.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#898781" text-anchor="start" font-weight="normal">A vessel that changes flag twice between captures overwrites its own history, and one that changes annually for five years leaves</text>
+<text x="56.0" y="112.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#898781" text-anchor="start" font-weight="normal">a record showing one change. Every capture adds a link that would otherwise be lost. IMO numbers, which cannot be changed, are on a</text>
+<text x="56.0" y="128.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#898781" text-anchor="start" font-weight="normal">minority of rows — so a join to any other register rests on name and flag, both of which this source shows changing.</text>
+<text x="56.0" y="200.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#0b0b0b" text-anchor="start" font-weight="600">previous name kept</text>
+<text x="306.0" y="233.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">Active  (14,685)</text>
+<rect x="320.0" y="222.0" width="400.0" height="14.0" fill="#e1e0d9" rx="4"/>
+<rect x="320.0" y="222.0" width="114.0" height="14.0" fill="#2a78d6" rx="4"/>
+<text x="730.0" y="233.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">28.5%   4,185</text>
+<text x="306.0" y="253.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">Inactive  (44,980)</text>
+<rect x="320.0" y="242.0" width="400.0" height="14.0" fill="#e1e0d9" rx="4"/>
+<rect x="320.0" y="242.0" width="31.3" height="14.0" fill="#2a78d6" rx="4"/>
+<text x="730.0" y="253.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal"> 7.8%   3,525</text>
+<text x="306.0" y="273.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">Inoperative  (1,444)</text>
+<rect x="320.0" y="262.0" width="400.0" height="14.0" fill="#e1e0d9" rx="4"/>
+<rect x="320.0" y="262.0" width="52.9" height="14.0" fill="#2a78d6" rx="4"/>
+<text x="730.0" y="273.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">13.2%   191</text>
+<text x="56.0" y="300.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#0b0b0b" text-anchor="start" font-weight="600">previous flag kept</text>
+<text x="306.0" y="333.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">Active  (14,685)</text>
+<rect x="320.0" y="322.0" width="400.0" height="14.0" fill="#e1e0d9" rx="4"/>
+<rect x="320.0" y="322.0" width="6.5" height="14.0" fill="#eb6834" rx="4"/>
+<text x="730.0" y="333.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal"> 1.6%   238</text>
+<text x="306.0" y="353.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">Inactive  (44,980)</text>
+<rect x="320.0" y="342.0" width="400.0" height="14.0" fill="#e1e0d9" rx="4"/>
+<rect x="320.0" y="342.0" width="1.9" height="14.0" fill="#eb6834" rx="4"/>
+<text x="730.0" y="353.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal"> 0.5%   209</text>
+<text x="306.0" y="373.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">Inoperative  (1,444)</text>
+<rect x="320.0" y="362.0" width="400.0" height="14.0" fill="#e1e0d9" rx="4"/>
+<rect x="320.0" y="362.0" width="11.6" height="14.0" fill="#eb6834" rx="4"/>
+<text x="730.0" y="373.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal"> 2.9%   42</text>
+<text x="56.0" y="400.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#0b0b0b" text-anchor="start" font-weight="600">IMO / Lloyd's number</text>
+<text x="306.0" y="433.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">Active  (14,685)</text>
+<rect x="320.0" y="422.0" width="400.0" height="14.0" fill="#e1e0d9" rx="4"/>
+<rect x="320.0" y="422.0" width="116.8" height="14.0" fill="#9ec5f4" rx="4"/>
+<text x="730.0" y="433.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">29.2%   4,288</text>
+<text x="306.0" y="453.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">Inactive  (44,980)</text>
+<rect x="320.0" y="442.0" width="400.0" height="14.0" fill="#e1e0d9" rx="4"/>
+<rect x="320.0" y="442.0" width="25.6" height="14.0" fill="#9ec5f4" rx="4"/>
+<text x="730.0" y="453.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal"> 6.4%   2,883</text>
+<text x="306.0" y="473.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">Inoperative  (1,444)</text>
+<rect x="320.0" y="462.0" width="400.0" height="14.0" fill="#e1e0d9" rx="4"/>
+<rect x="320.0" y="462.0" width="83.7" height="14.0" fill="#9ec5f4" rx="4"/>
+<text x="730.0" y="473.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">20.9%   302</text>
+<text x="56.0" y="508.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#0b0b0b" text-anchor="start" font-weight="600">29.2% of active vessels carry an IMO number and 6.4% of inactive ones do.</text>
+<text x="56.0" y="530.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">That is a cap on every join this archive can make, and a reason to record the chain while it is still visible.</text>
+</svg>

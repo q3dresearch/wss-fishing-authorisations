@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="740" viewBox="0 0 940 740">
+<rect x="0.0" y="0.0" width="940.0" height="740.0" fill="#fcfcfb" rx="0"/>
+<text x="56.0" y="48.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="20" fill="#0b0b0b" text-anchor="start" font-weight="600">A vessel keeps its row and loses 54 columns</text>
+<text x="56.0" y="74.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#52514e" text-anchor="start" font-weight="normal">ICCAT's active export carries 87 columns. The inactive and inoperative exports carry 35.</text>
+<text x="56.0" y="96.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#898781" text-anchor="start" font-weight="normal">Zero serial numbers overlap between the three lists, so a vessel is in exactly one and MOVES between them.</text>
+<text x="56.0" y="112.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#898781" text-anchor="start" font-weight="normal">Each square below is one column of the active export. The orange ones do not survive the move, and no export records its date.</text>
+<rect x="120.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="152.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="184.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="216.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="248.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="280.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="312.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="344.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="376.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="408.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="440.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="472.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="504.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="536.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="568.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="600.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="632.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="664.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="696.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="728.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="760.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="792.0" y="180.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="120.0" y="212.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="152.0" y="212.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="184.0" y="212.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="216.0" y="212.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="248.0" y="212.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="280.0" y="212.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="312.0" y="212.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="344.0" y="212.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="376.0" y="212.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="408.0" y="212.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="440.0" y="212.0" width="26.0" height="26.0" fill="#2a78d6" rx="4"/>
+<rect x="472.0" y="212.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="504.0" y="212.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="536.0" y="212.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="568.0" y="212.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="600.0" y="212.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="632.0" y="212.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="664.0" y="212.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="696.0" y="212.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="728.0" y="212.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="760.0" y="212.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="792.0" y="212.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="120.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="152.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="184.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="216.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="248.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="280.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="312.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="344.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="376.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="408.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="440.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="472.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="504.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="536.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="568.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="600.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="632.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="664.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="696.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="728.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="760.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="792.0" y="244.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="120.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="152.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="184.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="216.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="248.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="280.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="312.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="344.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="376.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="408.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="440.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="472.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="504.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="536.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="568.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="600.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="632.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="664.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="696.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="728.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="760.0" y="276.0" width="26.0" height="26.0" fill="#eb6834" rx="4"/>
+<rect x="120.0" y="326.0" width="14.0" height="14.0" fill="#2a78d6" rx="3"/>
+<text x="142.0" y="338.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">33 carried to the exit list (3 under a new name)</text>
+<rect x="420.0" y="326.0" width="14.0" height="14.0" fill="#eb6834" rx="3"/>
+<text x="442.0" y="338.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="600">54 deleted at the moment of exit</text>
+<text x="56.0" y="380.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="14" fill="#0b0b0b" text-anchor="start" font-weight="600">What the deleted columns are</text>
+<text x="300.0" y="406.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#eb6834" text-anchor="end" font-weight="600">36</text>
+<text x="312.0" y="406.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="600">twelve authorisation windows × _DtFrom _DtTo _DtNotif</text>
+<text x="312.0" y="421.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="10.5" fill="#898781" text-anchor="start" font-weight="normal">P20m SWOn SWOs ALBn ALBs TROP SWOm ALBm BFEc BFEo Carr Char</text>
+<text x="300.0" y="445.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#eb6834" text-anchor="end" font-weight="600">12</text>
+<text x="312.0" y="445.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="600">the same twelve × _ddIF</text>
+<text x="312.0" y="460.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="10.5" fill="#898781" text-anchor="start" font-weight="normal">an internal identifier per fishery</text>
+<text x="300.0" y="484.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#eb6834" text-anchor="end" font-weight="600"> 2</text>
+<text x="312.0" y="484.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="600">BFEc_CatchQuota, BFEc_YearQuota</text>
+<text x="312.0" y="499.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="10.5" fill="#898781" text-anchor="start" font-weight="normal">the bluefin quota the vessel held, and its year</text>
+<text x="300.0" y="523.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#eb6834" text-anchor="end" font-weight="600"> 2</text>
+<text x="312.0" y="523.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="600">P20m_RM, TROP_RM</text>
+<text x="312.0" y="538.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="10.5" fill="#898781" text-anchor="start" font-weight="normal">the recommendation it was listed under</text>
+<text x="300.0" y="562.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#eb6834" text-anchor="end" font-weight="600"> 2</text>
+<text x="312.0" y="562.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="start" font-weight="600">FlagRepCode, FlagChartTo</text>
+<text x="312.0" y="577.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="10.5" fill="#898781" text-anchor="start" font-weight="normal">which party reported it, and who it is chartered to</text>
+<text x="312.0" y="605.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#898781" text-anchor="start" font-weight="normal">Renamed, not lost: VMSSysCode to VmsComSysCode, OwCtryCode to OwCountry, OpCtryCode to OpCountry</text>
+<text x="56.0" y="688.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#0b0b0b" text-anchor="start" font-weight="600">Nothing in the inactive export carries a date of any kind. 44,980 vessels are marked inactive and not one says when.</text>
+<text x="56.0" y="710.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">The inoperative export keeps a reason and still no date. That date is what two captures produce and one cannot.</text>
+</svg>
