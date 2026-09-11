@@ -96,6 +96,29 @@ The ceiling on all of it: **an IMO number is on 29.2% of active vessels and
 6.4% of inactive ones.** Without it, a join to any other register rests on name
 and flag — both of which this source shows changing.
 
+## It is a choice, and ICCAT proves it in the same file format
+
+<p align="center">
+  <img src="examples/charts/a-choice-not-a-limit.svg" width="900" alt="ICCAT's IUU workbook holds 185 current listings and 247 de-listed vessels with an exit date on 100% of them, giving a median 5.1 years listed. Its Record of Vessels holds 14,685 authorised and 44,980 inactive with an exit date on 0%, and no duration computable.">
+</p>
+
+`Data/IUU/IUU.xlsx` ships **two sheets**: `IUUs` with 185 current listings, and
+**`HstIUUs` with 247 historical ones carrying an extra column — `DateToHist`,
+filled on 100% of them.** ICCAT records the date every single vessel came *off*
+its IUU list, back nineteen years, with 130 delistings in 2021 alone. Median
+time listed: **1,874 days, 5.1 years**; longest 19.0.
+
+**And it records the date not one vessel came off its authorisation record.**
+
+Same website, same secretariat, same xlsx format. So this is not a technical
+limitation of how ICCAT publishes — it is a choice about which exits are worth
+recording. Naming offenders is the product, so ICCAT keeps it; saying who may
+fish today is the product, so yesterday is residue.
+
+That is the whole argument for this repository, made by the publisher rather
+than about it. The IUU workbook is a **larder** — fetched once as the F5 join
+control, never captured here.
+
 ## The control: ICCAT deletes what its sister commission keeps
 
 <p align="center">

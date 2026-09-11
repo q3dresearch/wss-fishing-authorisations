@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="620" viewBox="0 0 940 620">
+<rect x="0.0" y="0.0" width="940.0" height="620.0" fill="#fcfcfb" rx="0"/>
+<text x="56.0" y="48.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="20" fill="#0b0b0b" text-anchor="start" font-weight="600">The same secretariat dates every enforcement exit and none of the others</text>
+<text x="56.0" y="74.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#52514e" text-anchor="start" font-weight="normal">ICCAT's IUU workbook and its Record of Vessels — same website, same xlsx format, opposite retention.</text>
+<text x="56.0" y="96.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#898781" text-anchor="start" font-weight="normal">Data/IUU/IUU.xlsx ships two sheets: 185 current listings, and 247 historical ones carrying an extra column, DateToHist.</text>
+<text x="56.0" y="112.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#898781" text-anchor="start" font-weight="normal">So this is not a technical limitation of how ICCAT publishes. It is a choice about which exits are worth recording.</text>
+<rect x="56.0" y="180.0" width="400.0" height="4.0" fill="#2a78d6" rx="2"/>
+<text x="56.0" y="210.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#0b0b0b" text-anchor="start" font-weight="600">ENFORCEMENT — the IUU list</text>
+<text x="56.0" y="254.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">185 vessels currently listed</text>
+<text x="56.0" y="299.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">247 vessels de-listed and kept</text>
+<text x="56.0" y="328.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="10.5" fill="#2a78d6" text-anchor="start" font-weight="600">kept</text>
+<text x="56.0" y="344.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">exit date present on 100% of them</text>
+<text x="56.0" y="373.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="10.5" fill="#2a78d6" text-anchor="start" font-weight="600">kept</text>
+<text x="56.0" y="389.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">median 1,874 days listed (5.1 yr); longest</text>
+<text x="56.0" y="406.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">19.0 yr</text>
+<rect x="496.0" y="180.0" width="400.0" height="4.0" fill="#eb6834" rx="2"/>
+<text x="496.0" y="210.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#0b0b0b" text-anchor="start" font-weight="600">AUTHORISATION — the Record of Vessels</text>
+<text x="496.0" y="254.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">14,685 vessels currently authorised</text>
+<text x="496.0" y="299.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">44,980 marked inactive and kept</text>
+<text x="496.0" y="328.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="10.5" fill="#eb6834" text-anchor="start" font-weight="600">not published</text>
+<text x="496.0" y="344.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">exit date present on 0% of them</text>
+<text x="496.0" y="373.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="10.5" fill="#eb6834" text-anchor="start" font-weight="600">not published</text>
+<text x="496.0" y="389.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">no duration computable from any capture</text>
+<line x1="56.0" y1="470.0" x2="884.0" y2="470.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="56.0" y="500.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="15" fill="#0b0b0b" text-anchor="start" font-weight="600">247 dated departures on one list. 44,980 undated ones on the other.</text>
+<text x="56.0" y="524.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">The IUU list runs back nineteen years and cleared 130 vessels in 2021 alone. Every one of those exits carries a date.</text>
+<text x="56.0" y="546.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">Naming offenders is the product, so ICCAT keeps it. Saying who may fish today is the product, so yesterday is residue.</text>
+<text x="56.0" y="576.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#0b0b0b" text-anchor="start" font-weight="600">That is the whole argument for this repository, made by the publisher rather than about it.</text>
+</svg>

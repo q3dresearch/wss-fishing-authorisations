@@ -471,6 +471,83 @@ def chart_control(feeds):
     save(p, "iccat-against-iattc.svg", w, h)
 
 
+# ICCAT's own IUU workbook, Data/IUU/IUU.xlsx, read once on 2026-09-11 as the
+# F5 join control. It is a LARDER and this repo does not capture it -- these
+# are literals, and the screening record is in webprobes/catalogue.csv under
+# iccat.iuu.list.
+IUU = {"current": 185, "historical": 247, "dated": 1.00,
+       "median_days": 1874, "max_days": 6922, "peak_year": 2021, "peak_n": 130}
+
+
+def chart_choice_not_limit(feeds):
+    """F5, answered: the same publisher dates one kind of exit and not the other."""
+    w, h = 940, 620
+    a, i = feeds["feed:iccat:active"], feeds["feed:iccat:inactive"]
+    p = head(w, h, "The same secretariat dates every enforcement exit and none of the others",
+             "ICCAT's IUU workbook and its Record of Vessels — same website, same "
+             "xlsx format, opposite retention.",
+             ["Data/IUU/IUU.xlsx ships two sheets: 185 current listings, and 247 "
+              "historical ones carrying an extra column, DateToHist.",
+              "So this is not a technical limitation of how ICCAT publishes. It "
+              "is a choice about which exits are worth recording."])
+    x0, y0 = 56, 180
+    panels = [
+        ("ENFORCEMENT — the IUU list", HUE, [
+            (f"{IUU['current']} vessels currently listed", None),
+            (f"{IUU['historical']} vessels de-listed and kept", None),
+            (f"exit date present on {IUU['dated']:.0%} of them", "yes"),
+            (f"median {IUU['median_days']:,} days listed "
+             f"({IUU['median_days']/365.25:.1f} yr); longest "
+             f"{IUU['max_days']/365.25:.1f} yr", "yes"),
+        ]),
+        ("AUTHORISATION — the Record of Vessels", ACCENT, [
+            (f"{int(a['vessels_listed']):,} vessels currently authorised", None),
+            (f"{int(i['vessels_listed']):,} marked inactive and kept", None),
+            ("exit date present on 0% of them", "no"),
+            ("no duration computable from any capture", "no"),
+        ]),
+    ]
+    for col, (title, colour, lines) in enumerate(panels):
+        x = x0 + col * 440
+        p.append(R(x, y0, 400, 4, colour, rx=2))
+        p.append(T(x, y0 + 30, title, 13, INK, weight="600"))
+        y = y0 + 58
+        for text, mark in lines:
+            if mark == "yes":
+                p.append(T(x, y, "kept", 10.5, HUE, weight="600"))
+            elif mark == "no":
+                p.append(T(x, y, "not published", 10.5, ACCENT, weight="600"))
+            y += 16
+            # wrap at ~46 chars without a layout engine
+            words, line = text.split(), ""
+            for word in words:
+                if len(line) + len(word) + 1 > 46:
+                    p.append(T(x, y, line, 12, INK2)); y += 17; line = word
+                else:
+                    line = f"{line} {word}".strip()
+            if line: p.append(T(x, y, line, 12, INK2)); y += 17
+            y += 12
+
+    y = y0 + 290
+    p.append(L(x0, y, w - 56, y, GRID))
+    p.append(T(x0, y + 30,
+               f"{IUU['historical']} dated departures on one list. "
+               f"{int(i['vessels_listed']):,} undated ones on the other.",
+               15, INK, weight="600"))
+    p.append(T(x0, y + 54,
+               f"The IUU list runs back nineteen years and cleared "
+               f"{IUU['peak_n']} vessels in {IUU['peak_year']} alone. Every one "
+               f"of those exits carries a date.", 12, INK2))
+    p.append(T(x0, y + 76,
+               "Naming offenders is the product, so ICCAT keeps it. Saying who "
+               "may fish today is the product, so yesterday is residue.",
+               12, INK2))
+    p.append(T(x0, y + 106,
+               "That is the whole argument for this repository, made by the "
+               "publisher rather than about it.", 13, INK, weight="600"))
+    save(p, "a-choice-not-a-limit.svg", w, h)
+
+
 def chart_where_the_fleet_went(flags, feeds):
     w, h = 940, 620
     tot = {k: int(feeds[f"feed:iccat:{k}"]["vessels_listed"])
@@ -527,6 +604,7 @@ def main():
     chart_one_hop(feeds)
     chart_where_the_fleet_went(flags, feeds)
     chart_control(feeds)
+    chart_choice_not_limit(feeds)
 
 
 if __name__ == "__main__":
