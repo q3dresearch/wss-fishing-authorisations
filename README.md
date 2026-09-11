@@ -155,6 +155,8 @@ looks like clean data to everyone downstream.
 The questions this archive exists to answer, with honest statuses and the
 people who act on them, are in
 [docs/research-questions.md](docs/research-questions.md).
+The publication decision, and what interrogating the charts found before
+it, is in [docs/pilot-study.md](docs/pilot-study.md).
 
 ## Personal data: raw is complete, published is not
 
