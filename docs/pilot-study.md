@@ -93,6 +93,25 @@ expired-window figure has an innocent reading that the evidence currently
 favours. No departure, duration or rate can be reported from one frame — F1
 through F9 all read *needs the archive* or *2 captures*.
 
+## What the first two captures taught, four hours apart
+
+The listener's first interval produced a finding about the listener.
+
+The **inactive** export came back `changed` while the other two came back
+`unchanged`. It was an identical **6,673,620 bytes**, 44,980 rows, **zero rows
+gone, zero new, zero column differences** — and **19.3% of its lines in a
+different position**. Sorting both bodies makes them byte-identical.
+
+**ICCAT's export has non-deterministic row order, so `changed` in the manifest
+carries no signal for this source.** The content hash will differ on most
+captures while nothing has moved, and `dedupe_ignore` cannot fix it — it strips
+regex-matched substrings, not row order. Anyone reading the manifest's outcome
+column as "the fleet changed" will be wrong most months.
+
+The derived table is unaffected: observations are keyed by entity, metric,
+value and date, so re-parsing reordered identical content collapses to the same
+rows. **Read the observations, not the outcome column.**
+
 ## Against the rest of the fleet
 
 | | this repo | published fleet |

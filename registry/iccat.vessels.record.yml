@@ -49,6 +49,15 @@ licence: "ICCAT publishes the Record of Vessels under Rec. 25-12 as a public com
 personal_data: present
 storage: object
 
+# THE EXPORT'S ROW ORDER IS NON-DETERMINISTIC, so `changed` in the manifest
+# carries NO signal for this source. Measured on the first two captures, four
+# hours apart on 2026-09-11: the inactive export came back at an identical
+# 6,673,620 bytes with 44,980 rows, zero rows gone, zero new and zero column
+# differences -- and 19.3% of its lines in a different position. Sorting both
+# bodies makes them identical. So the content hash differs on most captures
+# while nothing has changed, and dedupe_ignore cannot help (it strips
+# regex-matched substrings, not row order). Read the derived observations, not
+# the manifest's outcome column, to tell whether this fleet moved.
 notes: >-
   Three exports, ~11.3 MB per capture. Content-Type is
   application/vnd.ms-excel and the body is tab-separated CP1252 text -- it
