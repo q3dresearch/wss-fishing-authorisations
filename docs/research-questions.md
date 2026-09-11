@@ -15,6 +15,14 @@ sides of the exit"*.
 **ICCAT does not delete the vessel. It deletes fifty-four columns about it,
 and never records when.**
 
+**And its sister commission does not.** IATTC's register was pulled on
+2026-09-11 as the control: 29 columns on the live register and **29 on the
+inactive/sunk export**, `first inclusion` filled on 100% of 4,725 vessels back
+to 2002, and the transition narrated in prose — *"Sunk on 22 Dec 2024."*,
+*"Vanuatu - Change to Belize notified on 14 Jul 2026 (recorded on 16 Jul 2026)
+- Vessel name at time of change: Nine Lucky No. 6"*. So this is not how
+fisheries registers work. It is how **this** one works.
+
 That is a subtler destruction than the usual wss case and it is worth stating
 precisely, because "the row is still there" is exactly why nobody has noticed.
 
@@ -152,7 +160,8 @@ registry entry.
 | F3 | How long does an ICCAT authorisation actually run, end to end? | ~12 months | needs the archive. `DtFrom`/`DtTo` give the *scheduled* window; whether a vessel is renewed, lapses quietly, or leaves before its `DtTo` needs consecutive captures |
 | F4 | Do vessels reflag more than once, and where to? | ~12 months | needs the archive. `FlagVesCodePrev` holds one hop and is filled on 238 of 14,685. Every capture extends the chain by one link that would otherwise be overwritten |
 | F5 | Was a departure an enforcement action or an ordinary exit? | a source | **`source not yet added`** — ICCAT's IUU list at `/Data/IUU/IUU.xlsx` is the other half, and it is a larder: 163 vessels back to 2004 with `Date Included On List` intact, exactly as the incentive rule predicts. Fetch it ONCE as a join control. A vessel that leaves the active record AND appears there left for a completely different reason than one that quietly went inactive |
-| F6 | Is this a property of tuna RFMOs or one secretariat's habit? | 3 sources | **`source not yet added`** — IOTC (`rav.iotc.org`), WCPFC and IATTC run the same three-way Active/Inactive/IUU split. IOTC is a client-rendered app whose API has not been located; WCPFC 403s; IATTC hides its table behind an ASP.NET form POST. All three are catalogued as candidates. One commission is an anecdote |
+| F6 | Is this a property of tuna RFMOs or one secretariat's habit? | **answered against IATTC, 2026-09-11** | **It is ICCAT's habit, and that makes the claim sharper rather than weaker.** IATTC's Regional Vessel Register was pulled and diffed: **29 columns on the register and 29 on the inactive/sunk export — nothing is dropped at the exit.** `Register Status` is a real status changed in place (Active 4,713 / Inactive 9 / Sunk 3) rather than a move between lists; `first inclusion` is filled on **100% of 4,725 vessels** back to 2002; `Notes` carries the transition date in prose; and `Previous flag` narrates the change with both dates and the vessel's name at the time. **IATTC records precisely what ICCAT deletes.** IOTC and WCPFC remain untested |
+| F12 | Does anyone keep a flag-hop chain longer than one? | **answered, and nobody does** | IATTC describes its one previous flag far better than ICCAT — with the notification date, the recording date and the name at the time — but **0 of its 234 previous-flag entries narrate more than one change.** Both commissions keep exactly one hop. The chain is only reconstructable from consecutive captures, at either |
 | F7 | Which flags account for departures against their share of the standing record? | ~12 months | needs the archive. The stock comparison above is not a rate: 44,980 inactive vessels accumulated over decades cannot be divided by a 14,685-vessel snapshot and called a departure rate. Only observed transitions can |
 | F8 | What happens to the bluefin quota when a vessel leaves? | ~6 months | needs the archive. 438 active vessels carry `BFEc_CatchQuota`, 25,022,393 kg between them, and the column does not exist on the inactive export. Whether a departing vessel's quota reappears on another vessel is a question about how quota is actually traded, and it is invisible from one frame |
 | F9 | Is the fleet getting smaller or just smaller-vessel? | ~12 months | needs the archive. Median length overall is **9.0 m on the active record, 6.8 m inactive and 25.1 m inoperative** — the vessels that are destroyed, delisted, scrapped or sunk are four times the length of the ones that merely go inactive. Those are two different events wearing one label |

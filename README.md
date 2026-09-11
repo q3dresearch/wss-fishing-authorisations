@@ -96,6 +96,33 @@ The ceiling on all of it: **an IMO number is on 29.2% of active vessels and
 6.4% of inactive ones.** Without it, a join to any other register rests on name
 and flag — both of which this source shows changing.
 
+## The control: ICCAT deletes what its sister commission keeps
+
+<p align="center">
+  <img src="examples/charts/iccat-against-iattc.svg" width="900" alt="ICCAT's live register carries 87 columns and its exit list 35, a loss of 52. IATTC's register and its inactive/sunk export both carry 29. IATTC records a status changed in place, the first-inclusion date on 100% of 4,725 vessels back to 2002, the date it left in Notes, and a narrated previous flag; ICCAT publishes none of those.">
+</p>
+
+Pulled on the same day, as the control this repository's F6 asked for.
+**IATTC's Regional Vessel Register and its inactive/sunk export carry the same
+29 columns.** Nothing is dropped at the exit. Its `Register Status` is a real
+status changed in place — Active 4,713, Inactive 9, Sunk 3 — rather than a move
+between lists; `first inclusion` is filled on **100% of 4,725 vessels back to
+2002**; and the transition is dated in prose: *"Sunk on 22 Dec 2024."*,
+*"Vanuatu - Change to Belize notified on 14 Jul 2026 (recorded on 16 Jul 2026)
+— Vessel name at time of change: Nine Lucky No. 6."*
+
+**So this is not how fisheries registers work. It is how this one works** —
+which is a checkable criticism of one secretariat rather than a vague claim
+about governance, and it is a better finding than the one it replaced.
+
+One limit survives at both: **0 of IATTC's 234 previous-flag entries narrate
+more than one change.** Neither commission keeps a flag-hop chain, and that one
+is only reconstructable from consecutive captures.
+
+IATTC is therefore a larder, not a listener. It is fetched once as a control
+and this repository does not capture it; the screening record is in
+`webprobes/catalogue.csv` under `iattc.vessel.register`.
+
 ## Two exit lists, two different events
 
 <p align="center">

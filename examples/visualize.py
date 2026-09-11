@@ -403,6 +403,74 @@ def chart_one_hop(feeds):
     save(p, "one-hop-of-history.svg", w, h)
 
 
+# The IATTC control, pulled 2026-09-11. These are measurements of ANOTHER
+# publisher, so they are literals here rather than archive rows -- this repo
+# does not capture IATTC and should not pretend to. The screening record is in
+# webprobes/catalogue.csv under iattc.vessel.register.
+IATTC = {
+    "vessels": 4725, "cols_live": 29, "cols_exit": 29,
+    "status": [("Active", 4713), ("Inactive", 9), ("Sunk", 3)],
+    "inclusion_filled": 1.00, "prevflag": 234, "prevflag_multi": 0,
+}
+
+def chart_control(feeds):
+    """F6, answered: the same register shape, the opposite retention."""
+    w, h = 940, 740
+    a = feeds["feed:iccat:active"]
+    ic_live, ic_exit = int(a["columns"]), int(feeds["feed:iccat:inactive"]["columns"])
+    p = head(w, h, "ICCAT deletes what its sister commission keeps",
+             "The same kind of register, on the other side of the Americas, "
+             "pulled on the same day.",
+             ["IATTC's Regional Vessel Register and its inactive/sunk export "
+              "carry the SAME 29 columns. ICCAT's carry 87 and 35.",
+              "So this is not how fisheries registers work — it is how one of "
+              "them works, which is a checkable criticism rather than a vague one."])
+    x0, y0 = 300, 180
+    for i, (label, live, exit_, note) in enumerate((
+            ("ICCAT", ic_live, ic_exit,
+             f"{ic_live - ic_exit} columns deleted at the exit, and no date anywhere"),
+            ("IATTC", IATTC["cols_live"], IATTC["cols_exit"],
+             "nothing deleted; the transition is dated in prose"))):
+        y = y0 + i * 120
+        p.append(T(x0 - 14, y + 18, label, 15, INK, anchor="end", weight="600"))
+        scale = 560 / max(ic_live, IATTC["cols_live"])
+        p.append(T(x0, y - 8, "live register", 10.5, MUTED))
+        p.append(R(x0, y, live * scale, 22, HUE, rx=4))
+        p.append(T(x0 + live * scale + 8, y + 16, f"{live} columns", 12, INK2))
+        p.append(T(x0, y + 36, "exit list", 10.5, MUTED))
+        p.append(R(x0, y + 44, exit_ * scale, 22, ACCENT if exit_ < live else HUE, rx=4))
+        p.append(T(x0 + exit_ * scale + 8, y + 60, f"{exit_} columns", 12,
+                   ACCENT if exit_ < live else INK2,
+                   weight="600" if exit_ < live else "normal"))
+        p.append(T(x0, y + 84, note, 11, INK if exit_ < live else INK2,
+                   weight="600" if exit_ < live else "normal"))
+
+    y = y0 + 250
+    p.append(T(56, y, "What IATTC records that ICCAT does not", 14, INK, weight="600"))
+    y += 24
+    for label, iattc_v, iccat_v in (
+            ("a status changed in place, not a move between lists",
+             "Active 4,713 · Inactive 9 · Sunk 3", "three separate exports, no overlap"),
+            ("when the vessel first entered the register",
+             f"{IATTC['inclusion_filled']:.0%} of {IATTC['vessels']:,}, back to 2002", "not published"),
+            ("when it left", "in Notes: \u201cSunk on 22 Dec 2024.\u201d", "not published"),
+            ("what it was before",
+             "flag, dates and the name at the time", "a bare previous-flag code")):
+        p.append(T(300 - 14, y + 11, label, 11.5, INK, anchor="end"))
+        p.append(R(300, y, 6, 14, HUE, rx=2))
+        p.append(T(314, y + 11, iattc_v, 11, INK2))
+        p.append(T(314, y + 26, f"ICCAT: {iccat_v}", 10.5, ACCENT))
+        y += 44
+    p.append(T(56, h - 52,
+               f"One limit survives at both: {IATTC['prevflag_multi']} of "
+               f"{IATTC['prevflag']} IATTC previous-flag entries narrate more than "
+               f"one change.", 13, INK, weight="600"))
+    p.append(T(56, h - 30,
+               "Neither commission keeps a flag-hop chain. That one is only "
+               "reconstructable from consecutive captures.", 12, INK2))
+    save(p, "iccat-against-iattc.svg", w, h)
+
+
 def chart_where_the_fleet_went(flags, feeds):
     w, h = 940, 620
     tot = {k: int(feeds[f"feed:iccat:{k}"]["vessels_listed"])
@@ -458,6 +526,7 @@ def main():
     chart_how_a_vessel_leaves(vessels, feeds, reasons)
     chart_one_hop(feeds)
     chart_where_the_fleet_went(flags, feeds)
+    chart_control(feeds)
 
 
 if __name__ == "__main__":
