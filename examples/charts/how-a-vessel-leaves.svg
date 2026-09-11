@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="940" height="560" viewBox="0 0 940 560">
-<rect x="0.0" y="0.0" width="940.0" height="560.0" fill="#fcfcfb" rx="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="600" viewBox="0 0 940 600">
+<rect x="0.0" y="0.0" width="940.0" height="600.0" fill="#fcfcfb" rx="0"/>
 <text x="56.0" y="48.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="20" fill="#0b0b0b" text-anchor="start" font-weight="600">Inactive and inoperative are two different events</text>
-<text x="56.0" y="74.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#52514e" text-anchor="start" font-weight="normal">ICCAT's two exit lists hold different fleets. The vessels that are destroyed, delisted, scrapped or sunk are much larger.</text>
+<text x="56.0" y="74.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#52514e" text-anchor="start" font-weight="normal">ICCAT's two exit lists hold different fleets. The ones it marks inoperative are nearly four times the length.</text>
 <text x="56.0" y="96.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#898781" text-anchor="start" font-weight="normal">Median length overall, and what the inoperative export gives as a reason. Neither list carries a date.</text>
 <text x="56.0" y="112.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#898781" text-anchor="start" font-weight="normal">A vessel that quietly goes inactive and one that sinks are the same row in this archive until the reason is read.</text>
 <text x="236.0" y="193.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#0b0b0b" text-anchor="end" font-weight="600">Active</text>
@@ -17,17 +17,18 @@
 <rect x="250.0" y="272.0" width="420.0" height="18.0" fill="#eb6834" rx="4"/>
 <text x="680.0" y="286.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">median 25.1 m</text>
 <text x="56.0" y="358.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="14" fill="#0b0b0b" text-anchor="start" font-weight="600">Why a vessel is inoperative</text>
-<text x="236.0" y="394.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="normal">destroyed</text>
-<rect x="250.0" y="382.0" width="420.0" height="16.0" fill="#2a78d6" rx="4"/>
-<text x="680.0" y="394.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">812  (56%)</text>
-<text x="236.0" y="422.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="normal">delisted</text>
-<rect x="250.0" y="410.0" width="218.8" height="16.0" fill="#2a78d6" rx="4"/>
-<text x="478.8" y="422.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">423  (29%)</text>
-<text x="236.0" y="450.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="normal">scrapped</text>
-<rect x="250.0" y="438.0" width="102.4" height="16.0" fill="#2a78d6" rx="4"/>
-<text x="362.4" y="450.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">198  (14%)</text>
-<text x="236.0" y="478.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="normal">sunk</text>
-<rect x="250.0" y="466.0" width="5.7" height="16.0" fill="#2a78d6" rx="4"/>
-<text x="265.7" y="478.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">11  (1%)</text>
-<text x="56.0" y="512.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#0b0b0b" text-anchor="start" font-weight="600">The inactive export gives no reason at all — 44,980 vessels, one word, no date.</text>
+<text x="56.0" y="374.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="10.5" fill="#898781" text-anchor="start" font-weight="normal">ICCAT's OperStatusCode, verbatim. Its Readme.xlsx defines every other column and not these four, so the readings in brackets are a guess — DELI could as easily be “delivered”.</text>
+<text x="236.0" y="410.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="normal">DEST  (destroyed?)</text>
+<rect x="250.0" y="398.0" width="420.0" height="16.0" fill="#2a78d6" rx="4"/>
+<text x="680.0" y="410.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">812  (56%)</text>
+<text x="236.0" y="438.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="normal">DELI  (delisted? delivered?)</text>
+<rect x="250.0" y="426.0" width="218.8" height="16.0" fill="#2a78d6" rx="4"/>
+<text x="478.8" y="438.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">423  (29%)</text>
+<text x="236.0" y="466.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="normal">SCRP  (scrapped?)</text>
+<rect x="250.0" y="454.0" width="102.4" height="16.0" fill="#2a78d6" rx="4"/>
+<text x="362.4" y="466.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">198  (14%)</text>
+<text x="236.0" y="494.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="12" fill="#0b0b0b" text-anchor="end" font-weight="normal">SUNK  (sunk?)</text>
+<rect x="250.0" y="482.0" width="5.7" height="16.0" fill="#2a78d6" rx="4"/>
+<text x="265.7" y="494.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">11  (1%)</text>
+<text x="56.0" y="528.0" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' font-size="13" fill="#0b0b0b" text-anchor="start" font-weight="600">The inactive export gives no reason at all — 44,980 vessels, one word, no date.</text>
 </svg>

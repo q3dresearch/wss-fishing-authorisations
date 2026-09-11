@@ -34,7 +34,7 @@ of those are renames**, and **54 are genuinely deleted**:
 | | columns | what they are |
 | --- | --- | --- |
 | twelve authorisation windows × `_DtFrom` `_DtTo` `_DtNotif` | 36 | `P20m` `SWOn` `SWOs` `ALBn` `ALBs` `TROP` `SWOm` `ALBm` `BFEc` `BFEo` `Carr` `Char` |
-| the same twelve × `_ddIF` | 12 | an internal identifier per fishery |
+| the same twelve × `_ddIF` | 12 | **days left on that authorisation** — ICCAT's own countdown, negative when overdue |
 | `BFEc_CatchQuota`, `BFEc_YearQuota` | 2 | the bluefin quota the vessel held, and its year. 438 active vessels carry one, **25,022,393 kg between them** |
 | `P20m_RM`, `TROP_RM` | 2 | the recommendation it was listed under |
 | `FlagRepCode`, `FlagChartTo` | 2 | which party reported it, who it is chartered to |
@@ -73,6 +73,29 @@ single capture there is no way to tell the difference between:
    which nobody has moved to the inactive list, and
 2. an annual notification cycle that has not been entered yet, or an export
    regenerated from a database that stopped being updated.
+
+**ICCAT's own `_ddIF` columns narrow it, and they narrow it towards (2).** Its
+`Readme.xlsx` names them *"SWO-N (days left active)"* and eleven more like it,
+and states the convention outright — authorisation status is *"[+] in force OR
+[-] expired"*. So the publisher itself publishes a countdown, and the
+distribution of overdue windows is one cohort, not a spread:
+
+| how overdue | windows | share |
+| --- | --- | --- |
+| within 90 days | 160 | 0.6% |
+| 91–180 days | 589 | 2.4% |
+| **181–365 days** | **23,571** | **94.2%** |
+| 366–547 days | 699 | 2.8% |
+| 548+ days | 15 | 0.1% |
+
+Median **254 days** overdue, which puts the mass on **31 December 2025** — the
+end of an annual authorisation year — unrenewed in the eight and a half months
+since. That is what an un-entered 2026 cycle looks like, and it is the leading
+hypothesis rather than a stalled register.
+
+**714 windows (2.9%) are more than a year past expiry**, and no annual cycle
+explains those. Worst is **619 days**. Whatever the answer to F2 turns out to
+be, that smaller population is a separate question.
 
 What was ruled out: there is no hidden date filter. `vStatus=1`,
 `vessAll=True&vStatus=1` and `vessAll=False&vStatus=1` return **byte-identical
@@ -164,6 +187,25 @@ what, and until when.
 3. F2 resolves as "stale": if the record has genuinely stopped being maintained
    and stays frozen for six months, there is nothing left to listen to and the
    right output is a written note, not a job.
+
+## Three things the source calls something other than what I assumed
+
+**`_ddIF` is "days left active", not an identifier.** The first parser called
+the twelve `_ddIF` columns *an internal identifier per fishery* on the strength
+of their values (−254, −255, 323). They are a countdown, documented in ICCAT's
+own `Readme.xlsx`, and they are the publisher's own answer to the question this
+repository asks. **Their sign agrees with `valid_to < today` on all 26,081
+windows — zero disagreements** — which is the strongest independent check
+available on the central claim here, and it comes from the source itself.
+
+**`DEST`, `DELI`, `SCRP` and `SUNK` are not defined by ICCAT anywhere.** The
+`Readme.xlsx` documents every other column in the export and says nothing about
+`OperStatusCode`. The first parser stored `delisted`, `destroyed`, `scrapped`
+and `sunk` as the observed values, which would have put a guess in the archive
+indistinguishable from a fact. The codes now travel verbatim, and the reading
+appears only on the chart, marked as a guess. **`DELI` is the one that matters:
+it reads as "delisted" and could as easily be "delivered"**, which would mean
+close to the opposite — 423 of 1,444 inoperative vessels turn on it.
 
 ## Two defects in the source, found by parsing it
 

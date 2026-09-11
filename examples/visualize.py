@@ -50,7 +50,7 @@ FONT = 'system-ui, -apple-system, "Segoe UI", sans-serif'
 VANISHED = [
     ("twelve authorisation windows × _DtFrom _DtTo _DtNotif", 36,
      "P20m SWOn SWOs ALBn ALBs TROP SWOm ALBm BFEc BFEo Carr Char"),
-    ("the same twelve × _ddIF", 12, "an internal identifier per fishery"),
+    ("the same twelve × _ddIF", 12, "days left on that authorisation — ICCAT's own countdown"),
     ("BFEc_CatchQuota, BFEc_YearQuota", 2,
      "the bluefin quota the vessel held, and its year"),
     ("P20m_RM, TROP_RM", 2, "the recommendation it was listed under"),
@@ -74,6 +74,11 @@ FLAG_NAME = {
 
 LIST_LABEL = {"active": "Active", "inactive": "Inactive", "inoperative": "Inoperative"}
 
+# A GUESS, and labelled as one wherever it is shown. ICCAT's Readme.xlsx
+# documents every other column in the export and says nothing about these.
+OPER_GUESS = {"DEST": "destroyed?", "DELI": "delisted? delivered?",
+              "SCRP": "scrapped?", "SUNK": "sunk?"}
+
 
 def _open(path: Path):
     if str(path).endswith(".gz"):
@@ -88,6 +93,7 @@ def load():
     flags = collections.defaultdict(dict)
     reasons = {}
     notified = collections.Counter()
+    days_left = []
     for part in sorted((REPO / "derived" / "observations").glob("*.csv*")):
         with _open(part) as fh:
             for r in csv.DictReader(fh):
@@ -98,11 +104,14 @@ def load():
                     feeds[eid][metric] = value
                 elif eid.startswith("flag:"):
                     flags[eid[5:]][metric] = value
-                elif eid.startswith("reason:"):
-                    reasons[eid[7:]] = value
-                elif eid.startswith("authorisation:") and metric == "notified_at":
-                    notified[value[:4]] += 1
-    return vessels, feeds, flags, reasons, notified
+                elif eid.startswith("opercode:"):
+                    reasons[eid[9:]] = value
+                elif eid.startswith("authorisation:"):
+                    if metric == "notified_at":
+                        notified[value[:4]] += 1
+                    elif metric == "days_left":
+                        days_left.append(int(value))
+    return vessels, feeds, flags, reasons, notified, days_left
 
 
 def T(x, y, text, size=12, fill=INK, anchor="start", weight="normal"):
@@ -203,8 +212,8 @@ def chart_columns_that_vanish(feeds):
     save(p, "the-columns-that-vanish.svg", w, h)
 
 
-def chart_expired(vessels, feeds, notified):
-    w, h = 940, 620
+def chart_expired(vessels, feeds, notified, days_left):
+    w, h = 940, 720
     f = feeds["feed:iccat:active"]
     total = int(f["vessels_listed"])
     lapsed = int(f["vessels_all_expired"])
@@ -236,7 +245,38 @@ def chart_expired(vessels, feeds, notified):
                f"{none} carry no window at all",
                12, INK2))
 
-    y = y0 + 128
+    # HOW overdue, which is what separates a lapsed register from an annual
+    # cycle not yet entered. ICCAT's own days-left column, not a derived date.
+    y = y0 + 112
+    overdue = sorted(-d for d in days_left if d < 0)
+    if overdue:
+        import statistics as _st
+        BUCKETS = [("within 90 days", 0, 90), ("91-180", 91, 180),
+                   ("181-365", 181, 365), ("366-547", 366, 547), ("548+", 548, 10**6)]
+        counts = [(lab, sum(1 for o in overdue if lo <= o <= hi))
+                  for lab, lo, hi in BUCKETS]
+        p.append(T(56, y, "How far past expiry, by ICCAT's own days-left column",
+                   14, INK, weight="600"))
+        y += 18
+        bx, bar = 56, 824
+        tot = len(overdue)
+        x = bx
+        for i, (lab, n) in enumerate(counts):
+            seg = bar * n / tot
+            col = ACCENT if lab == "181-365" else (HUE if i < 3 else DEAD)
+            p.append(R(x, y, max(seg - 2, 1), 26, col, rx=4))
+            if seg > 110:
+                p.append(T(x + seg / 2, y + 17, f"{lab}  {n/tot:.1%}", 12, SURFACE,
+                           anchor="middle", weight="600"))
+            x += seg
+        y += 34
+        year_plus = sum(n for lab, n in counts if lab in ("366-547", "548+"))
+        p.append(T(56, y + 10,
+                   f"Median {abs(_st.median(overdue)):,.0f} days overdue, worst "
+                   f"{max(overdue):,}. {year_plus:,} windows ({year_plus/tot:.1%}) "
+                   f"are more than a year past expiry, which no annual cycle explains.",
+                   12, INK2))
+        y += 48
     p.append(T(56, y, "When the record was last told anything", 14, INK, weight="600"))
     y += 12
     # Read from the archive, never hardcoded: this chart's whole point is that
@@ -267,7 +307,7 @@ def chart_expired(vessels, feeds, notified):
 
 
 def chart_how_a_vessel_leaves(vessels, feeds, reasons):
-    w, h = 940, 560
+    w, h = 940, 600
     lengths = collections.defaultdict(list)
     for eid, m in vessels.items():
         st = m.get("listed")
@@ -275,8 +315,8 @@ def chart_how_a_vessel_leaves(vessels, feeds, reasons):
         if st and ln:
             lengths[st].append(float(ln))
     p = head(w, h, "Inactive and inoperative are two different events",
-             "ICCAT's two exit lists hold different fleets. The vessels that are "
-             "destroyed, delisted, scrapped or sunk are much larger.",
+             "ICCAT's two exit lists hold different fleets. The ones it marks "
+             "inoperative are nearly four times the length.",
              ["Median length overall, and what the inoperative export gives as a "
               "reason. Neither list carries a date.",
               "A vessel that quietly goes inactive and one that sinks are the "
@@ -296,13 +336,19 @@ def chart_how_a_vessel_leaves(vessels, feeds, reasons):
 
     y = y0 + 3 * row + 40
     p.append(T(56, y, "Why a vessel is inoperative", 14, INK, weight="600"))
-    y += 24
+    p.append(T(56, y + 16,
+               "ICCAT's OperStatusCode, verbatim. Its Readme.xlsx defines every "
+               "other column and not these four, so the readings in brackets are "
+               "a guess — DELI could as easily be \u201cdelivered\u201d.",
+               10.5, MUTED))
+    y += 40
     if reasons:
         tot = sum(int(v) for v in reasons.values())
         mxr = max(int(v) for v in reasons.values())
         for label, value in sorted(reasons.items(), key=lambda kv: -int(kv[1])):
             n = int(value)
-            p.append(T(x0 - 14, y + 12, label, 12, INK, anchor="end"))
+            p.append(T(x0 - 14, y + 12,
+                       f"{label}  ({OPER_GUESS.get(label, '?')})", 12, INK, anchor="end"))
             p.append(R(x0, y, 420 * n / mxr, 16, HUE, rx=4))
             p.append(T(x0 + 420 * n / mxr + 10, y + 12, f"{n:,}  ({n/tot:.0%})", 11, INK2))
             y += 28
@@ -403,12 +449,12 @@ def chart_where_the_fleet_went(flags, feeds):
 
 
 def main():
-    vessels, feeds, flags, reasons, notified = load()
+    vessels, feeds, flags, reasons, notified, days_left = load()
     if not vessels:
         raise SystemExit("no observations — run `wss derive --parsers parsers.iccat_vessel_v1` first")
     print(f"loaded {len(vessels):,} vessels, {len(flags)} flags")
     chart_columns_that_vanish(feeds)
-    chart_expired(vessels, feeds, notified)
+    chart_expired(vessels, feeds, notified, days_left)
     chart_how_a_vessel_leaves(vessels, feeds, reasons)
     chart_one_hop(feeds)
     chart_where_the_fleet_went(flags, feeds)

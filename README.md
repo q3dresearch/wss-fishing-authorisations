@@ -62,8 +62,23 @@ same 14,685 rows, so `vessAll` is ignored and there is no hidden date filter.
 `Last-Modified` equals the request time, because the export is generated per
 request, and says nothing about freshness.
 
-Two captures a month apart settle it. That is the whole argument for this
-repository, and it is written down rather than dressed up.
+**ICCAT's own countdown narrows it, and narrows it towards the innocent
+reading.** The twelve `_ddIF` columns are documented in its `Readme.xlsx` as
+*"SWO-N (days left active)"* and eleven more like it, with the convention
+stated outright — *"[+] in force OR [-] expired"*. The overdue windows are one
+cohort rather than a spread: **94.2% sit 181–365 days past expiry, median
+254 days**, which puts the mass on **31 December 2025**, unrenewed in the eight
+and a half months since. That is what an un-entered annual cycle looks like.
+
+**714 windows (2.9%) are more than a year overdue, worst 619 days**, and no
+annual cycle explains those.
+
+That countdown is also the strongest check available on the headline: its sign
+agrees with `valid_to < today` on **all 26,081 windows, zero disagreements**.
+The publisher and this archive compute the same answer by different routes.
+
+Two captures a month apart settle which reading is right. That is the whole
+argument for this repository, and it is written down rather than dressed up.
 
 ## Reflagging, and the chain that gets overwritten
 
@@ -84,14 +99,22 @@ and flag — both of which this source shows changing.
 ## Two exit lists, two different events
 
 <p align="center">
-  <img src="examples/charts/how-a-vessel-leaves.svg" width="900" alt="Median length overall: active 9.0 m, inactive 6.8 m, inoperative 25.1 m. Inoperative reasons: destroyed 812 (56%), delisted 423 (29%), scrapped 198 (14%), sunk 11 (1%).">
+  <img src="examples/charts/how-a-vessel-leaves.svg" width="900" alt="Median length overall: active 9.0 m, inactive 6.8 m, inoperative 25.1 m. Inoperative OperStatusCode, undefined by ICCAT and shown verbatim: DEST 812 (56%), DELI 423 (29%), SCRP 198 (14%), SUNK 11 (1%).">
 </p>
 
 The vessels ICCAT marks *inoperative* have a median length of **25.1 m**
 against **6.8 m** for the ones that merely go *inactive*. Those are two
 different fleets and two different events, and only one of them carries a
-reason: `destroyed` 812, `delisted` 423, `scrapped` 198, `sunk` 11. The
-inactive export gives 44,980 vessels one word and no date.
+reason: `DEST` 812, `DELI` 423, `SCRP` 198, `SUNK` 11.
+
+**Those four codes are not defined by ICCAT anywhere.** Its `Readme.xlsx`
+documents every other column in the export and says nothing about
+`OperStatusCode`, so the codes travel into the archive verbatim and the reading
+appears only on the chart, marked as a guess. `DELI` is the one that matters —
+it reads as *delisted* and could as easily be *delivered*, which would mean
+close to the opposite, and 423 of the 1,444 turn on it.
+
+The inactive export gives 44,980 vessels one word and no date.
 
 ## Where the fleet went — a stock comparison, deliberately not a rate
 
@@ -118,6 +141,11 @@ noticed rather than mangled, and falls back to cp1252.
 **ICCAT misspells its own header.** The inoperative export writes `Op--Name`
 where the others write `OpName`. **436 of its 1,444 rows carry an operator**,
 and a parser reading only `OpName` finds zero of them.
+
+A fourth, caught by reading ICCAT's documentation rather than its data: the
+first version of this parser called the twelve `_ddIF` columns *an internal
+identifier per fishery*. They are the days-left countdown above — the single
+most useful column in the export, and it was nearly discarded as noise.
 
 A third, less consequential: `LOAm` reaches **2,445 m** on the active record.
 499 active rows and 2,575 inactive ones fall outside 1–500 m and are recorded
@@ -165,11 +193,11 @@ series_id, entity_id, observed_at, captured_at, metric, value, unit, source_id, 
 
 | entity | metrics |
 | --- | --- |
-| `vessel:<ICCATSerialNo>` | `listed` (active / inactive / inoperative — **the observation**), `name`, `flag`, `flag_previous`, `name_previous`, `imo`, `vessel_type`, `length_m` or `length_invalid`, `vms_system`, `owner_country`, `operator_country`, `owner_fp`, `operator_fp`, `owner`/`operator` (companies only), and on active only `flag_reporting`, `flag_chartered_to`, `quota_bluefin`, `authorisation_lapsed`; on inoperative only `inoperative_reason` |
-| `authorisation:<serial>:<fishery>` | `valid_from`, `valid_to`, `notified_at` — twelve fisheries, a closed set from the source's own schema |
+| `vessel:<ICCATSerialNo>` | `listed` (active / inactive / inoperative — **the observation**), `name`, `flag`, `flag_previous`, `name_previous`, `imo`, `vessel_type`, `length_m` or `length_invalid`, `vms_system`, `owner_country`, `operator_country`, `owner_fp`, `operator_fp`, `owner`/`operator` (companies only), and on active only `flag_reporting`, `flag_chartered_to`, `quota_bluefin`, `authorisation_lapsed`; on inoperative only `inoperative_code` (verbatim `DEST` / `DELI` / `SCRP` / `SUNK`, never an expansion) |
+| `authorisation:<serial>:<fishery>` | `valid_from`, `valid_to`, `notified_at`, `days_left` — twelve fisheries, a closed set from the source's own schema |
 | `flag:<code>` | `vessels_active`, `vessels_inactive`, `vessels_inoperative` |
 | `vesseltype:<ISSCFV>` | the same three |
-| `reason:<reason>` | `vessels_listed` |
+| `opercode:<CODE>` | `vessels_listed` — the code verbatim, never an expansion |
 | `feed:iccat:<list>` | `vessels_listed`, `rows_listed`, `columns`, `flags_listed`, `renamed_listed`, `reflagged_listed`, `with_imo`, `length_invalid`, `length_missing`, and on active `windows_listed`, `windows_expired`, `windows_live`, `vessels_all_expired`, `vessels_authorised`, `vessels_no_window`, `quota_vessels`, `quota_bluefin_total` |
 
 **Fisheries are a sub-entity, not a metric suffix.** Twelve authorisation

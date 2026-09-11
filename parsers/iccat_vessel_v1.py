@@ -9,6 +9,15 @@ and MOVES. The 52 columns that do not survive the move are the whole
 authorisation history: twelve windows, the bluefin quota, the reporting flag,
 the charter flag and the VMS system.
 
+ddIF IS "DAYS LEFT ACTIVE", NOT AN IDENTIFIER. The first version of this parser
+called the twelve _ddIF columns "an internal identifier per fishery" on the
+strength of their values (-254, -255, 323). ICCAT's own Readme.xlsx names them
+"SWO-N (days left active)" and eleven more like it, and states the convention
+outright: authorisation status is "[+] in force OR [-] expired". So it is a
+countdown, it is the publisher's own answer to the question this repository
+asks, and its sign agrees with valid_to < today on ALL 26,081 windows of the
+2026-09 capture -- zero disagreements. The most overdue window is -619 days.
+
 AND THE TRANSITION HAS NO DATE ANYWHERE. 44,980 vessels marked `inactive` and
 not one says when. So `listed` is the observation: which of the three lists a
 vessel was in, on a given month. A vessel whose `listed` changes between two
@@ -75,10 +84,17 @@ STATUS_BY_VSTATUS = {"1": "active", "2": "inactive", "3": "inoperative"}
 FISHERIES = ("P20m", "SWOn", "SWOs", "ALBn", "ALBs", "TROP",
              "SWOm", "ALBm", "BFEc", "BFEo", "Carr", "Char")
 
-# What ICCAT means by inoperative. No date accompanies any of them.
-INOPERATIVE_REASON = {
-    "DEST": "destroyed", "DELI": "delisted", "SCRP": "scrapped", "SUNK": "sunk",
-}
+# The days-left column, which ICCAT spells inconsistently: Trop_ddIF and
+# Char_ddIF break the pattern the other ten follow.
+DAYS_LEFT = {f: f"{f}_ddIF" for f in FISHERIES}
+DAYS_LEFT["TROP"] = "Trop_ddIF"
+
+# ICCAT's OperStatusCode values. THE EXPANSIONS ARE NOT ICCAT'S -- its own
+# Readme.xlsx defines every other column and says nothing about these four, so
+# the codes travel VERBATIM as the observed value and the gloss lives only in
+# the chart, labelled as a guess. DELI is the one that matters: it reads as
+# "delisted" and could as easily be "delivered", which would mean the opposite.
+INOPERATIVE_CODES = ("DEST", "DELI", "SCRP", "SUNK")
 
 # A name carrying one of these is a business. Matching is deliberately
 # generous: a false positive names a company that might be a person's trading
@@ -275,7 +291,8 @@ def parse(body: bytes, ctx: derive.ParseContext):
                 frm = _iso(row.get(f"{fishery}_DtFrom"))
                 to = _iso(row.get(f"{fishery}_DtTo"))
                 notified = _iso(row.get(f"{fishery}_DtNotif"))
-                if not (frm or to or notified):
+                days = _number(row.get(DAYS_LEFT[fishery]))
+                if not (frm or to or notified or days is not None):
                     continue
                 aid = f"authorisation:{serial}:{fishery}"
                 if frm:
@@ -284,6 +301,14 @@ def parse(body: bytes, ctx: derive.ParseContext):
                     yield derive.Observation(aid, "valid_to", to, "date")
                 if notified:
                     yield derive.Observation(aid, "notified_at", notified, "date")
+                if days is not None:
+                    # ICCAT's own countdown. Negative means overdue, and the
+                    # sign agrees with valid_to < today on all 26,081 windows
+                    # of the 2026-09 capture -- 0 disagreements. It is kept
+                    # because it is the publisher's own answer to the question
+                    # this repository is asking, and because it survives even
+                    # where a date is missing.
+                    yield derive.Observation(aid, "days_left", int(days), "day")
                 if frm and to:
                     windows += 1
                     vessel_windows += 1
@@ -308,8 +333,10 @@ def parse(body: bytes, ctx: derive.ParseContext):
             code = _clean(row.get("OperStatusCode"))
             if code:
                 reasons[code] = reasons.get(code, 0) + 1
-                yield derive.Observation(eid, "inoperative_reason",
-                                         INOPERATIVE_REASON.get(code, code), "state")
+                # Verbatim. ICCAT does not define these codes anywhere, so an
+                # expansion stored here would be a guess indistinguishable
+                # from a fact once it is in the archive.
+                yield derive.Observation(eid, "inoperative_code", code, "state")
 
         # --- owners and operators -------------------------------------------
         for key, role in (("owner_name", "owner"), ("operator_name", "operator")):
@@ -355,8 +382,7 @@ def parse(body: bytes, ctx: derive.ParseContext):
     for vtype, n in sorted(types.items()):
         yield derive.Observation(f"vesseltype:{vtype}", f"vessels_{status}", n, "count")
     for code, n in sorted(reasons.items()):
-        yield derive.Observation(f"reason:{INOPERATIVE_REASON.get(code, code)}",
-                                 "vessels_listed", n, "count")
+        yield derive.Observation(f"opercode:{code}", "vessels_listed", n, "count")
 
 
 derive.register("iccat-vessel.v1", parse, PARSER_VERSION)
