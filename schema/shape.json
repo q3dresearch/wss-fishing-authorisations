@@ -1,0 +1,843 @@
+{
+  "generated_at": "2026-09-15T13:14:37Z",
+  "note": "Inferred from the derived rows by `wss schema`, not hand-written. Regenerate after any derive.",
+  "sources": {
+    "iccat.vessels.record": {
+      "source_id": "iccat.vessels.record",
+      "schema_id": "iccat-vessel.v1",
+      "cadence": "monthly",
+      "licence": "ICCAT publishes the Record of Vessels under Rec. 25-12 as a public compliance register. No robots.txt on the host (404); no stated redistribution restriction.",
+      "personal_data": "present",
+      "storage": "object",
+      "publisher": "ICCAT — International Commission for the Conservation of Atlantic Tunas",
+      "publisher_tier": "first_party",
+      "endpoints": 3
+    }
+  },
+  "observations": {
+    "rows": 572577,
+    "columns": [
+      "series_id",
+      "entity_id",
+      "observed_at",
+      "captured_at",
+      "metric",
+      "value",
+      "unit",
+      "source_id",
+      "raw_ref",
+      "parser_version"
+    ],
+    "partitions": [
+      "2026-09.csv.gz"
+    ],
+    "series": {
+      "iccat.vessels.record": {
+        "rows": 572577,
+        "entities": 87295,
+        "entity_id_samples": [
+          "authorisation:AT000AGO00002:ALBs",
+          "authorisation:AT000AGO00002:P20m",
+          "authorisation:AT000AGO00002:SWOs"
+        ],
+        "metrics": [
+          "authorisation_lapsed",
+          "columns",
+          "days_left",
+          "flag",
+          "flag_chartered_to",
+          "flag_previous",
+          "flag_reporting",
+          "flags_listed",
+          "imo",
+          "inoperative_code",
+          "length_invalid",
+          "length_m",
+          "length_missing",
+          "listed",
+          "name",
+          "name_previous",
+          "notified_at",
+          "operator",
+          "operator_country",
+          "operator_fp",
+          "owner",
+          "owner_country",
+          "owner_fp",
+          "quota_bluefin",
+          "quota_bluefin_total",
+          "quota_vessels",
+          "reflagged_listed",
+          "renamed_listed",
+          "rows_listed",
+          "valid_from",
+          "valid_to",
+          "vessel_type",
+          "vessels_active",
+          "vessels_all_expired",
+          "vessels_authorised",
+          "vessels_inactive",
+          "vessels_inoperative",
+          "vessels_listed",
+          "vessels_no_window",
+          "vms_system",
+          "windows_expired",
+          "windows_listed",
+          "windows_live",
+          "with_imo"
+        ]
+      }
+    },
+    "parser_versions": [
+      "1"
+    ]
+  },
+  "metrics": {
+    "authorisation_lapsed": {
+      "rows": 14492,
+      "unit": "state",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 14492,
+      "distinct_values": 1,
+      "empty": 0,
+      "samples": [
+        "yes"
+      ]
+    },
+    "columns": {
+      "rows": 3,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 3,
+      "distinct_values": 2,
+      "empty": 0,
+      "min": "35",
+      "max": "87",
+      "samples": [
+        "35",
+        "87"
+      ]
+    },
+    "days_left": {
+      "rows": 26082,
+      "unit": "day",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 26082,
+      "distinct_values": 184,
+      "empty": 0,
+      "min": "-619",
+      "max": "1419",
+      "samples": [
+        "-103",
+        "-104",
+        "-105"
+      ]
+    },
+    "flag": {
+      "rows": 61082,
+      "unit": "state",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 61082,
+      "distinct_values": 71,
+      "empty": 0,
+      "samples": [
+        "AGO",
+        "ALB",
+        "BHS"
+      ]
+    },
+    "flag_chartered_to": {
+      "rows": 14679,
+      "unit": "state",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 14679,
+      "distinct_values": 5,
+      "empty": 0,
+      "samples": [
+        "---",
+        "EU-ITA",
+        "NAM"
+      ]
+    },
+    "flag_previous": {
+      "rows": 489,
+      "unit": "state",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 489,
+      "distinct_values": 70,
+      "empty": 0,
+      "samples": [
+        "AUS",
+        "BHS",
+        "BLZ"
+      ]
+    },
+    "flag_reporting": {
+      "rows": 14678,
+      "unit": "state",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 14678,
+      "distinct_values": 52,
+      "empty": 0,
+      "samples": [
+        "AGO",
+        "ALB",
+        "BHS"
+      ]
+    },
+    "flags_listed": {
+      "rows": 3,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 3,
+      "distinct_values": 3,
+      "empty": 0,
+      "min": "31",
+      "max": "66",
+      "samples": [
+        "31",
+        "51",
+        "66"
+      ]
+    },
+    "imo": {
+      "rows": 7473,
+      "unit": "text",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 7473,
+      "distinct_values": 4582,
+      "empty": 0,
+      "min": "0000000",
+      "max": "9998652",
+      "samples": [
+        "0000000",
+        "0000001",
+        "1009302"
+      ]
+    },
+    "inoperative_code": {
+      "rows": 1444,
+      "unit": "state",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 1444,
+      "distinct_values": 4,
+      "empty": 0,
+      "samples": [
+        "DELI",
+        "DEST",
+        "SCRP"
+      ]
+    },
+    "length_invalid": {
+      "rows": 3083,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 3083,
+      "distinct_values": 10,
+      "empty": 0,
+      "min": "0.0",
+      "max": "2575",
+      "samples": [
+        "0.0",
+        "0.9",
+        "2445.0"
+      ]
+    },
+    "length_m": {
+      "rows": 58002,
+      "unit": "metre",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 58002,
+      "distinct_values": 909,
+      "empty": 0,
+      "min": "1.0",
+      "max": "499.0",
+      "samples": [
+        "1.0",
+        "1.6",
+        "1.9"
+      ]
+    },
+    "length_missing": {
+      "rows": 3,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 3,
+      "distinct_values": 3,
+      "empty": 0,
+      "min": "0",
+      "max": "20",
+      "samples": [
+        "0",
+        "20",
+        "7"
+      ]
+    },
+    "listed": {
+      "rows": 61109,
+      "unit": "state",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 61109,
+      "distinct_values": 3,
+      "empty": 0,
+      "samples": [
+        "active",
+        "inactive",
+        "inoperative"
+      ]
+    },
+    "name": {
+      "rows": 60886,
+      "unit": "text",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 60886,
+      "distinct_values": 48809,
+      "empty": 0,
+      "samples": [
+        "'' FKHKA''",
+        "(n/a)",
+        "--"
+      ]
+    },
+    "name_previous": {
+      "rows": 7901,
+      "unit": "text",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 7901,
+      "distinct_values": 7328,
+      "empty": 0,
+      "samples": [
+        "'REEL CENTS'",
+        "(DESCONHECIDO)",
+        "--"
+      ]
+    },
+    "notified_at": {
+      "rows": 26082,
+      "unit": "date",
+      "type": "date",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 26082,
+      "distinct_values": 352,
+      "empty": 0,
+      "min": "2015-01-27",
+      "max": "2025-12-31",
+      "samples": [
+        "2015-01-27",
+        "2015-04-22",
+        "2016-03-28"
+      ]
+    },
+    "operator": {
+      "rows": 3127,
+      "unit": "text",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 3127,
+      "distinct_values": 2122,
+      "empty": 0,
+      "samples": [
+        "10474 (NFLD) LIMITED",
+        "18 Reeler Llc",
+        "2 SEA FISHERIES LLC"
+      ]
+    },
+    "operator_country": {
+      "rows": 20989,
+      "unit": "state",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 20989,
+      "distinct_values": 73,
+      "empty": 0,
+      "samples": [
+        "4493",
+        "Albania",
+        "Algerie"
+      ]
+    },
+    "operator_fp": {
+      "rows": 20989,
+      "unit": "text",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 20989,
+      "distinct_values": 15443,
+      "empty": 0,
+      "samples": [
+        "00034180bde59434",
+        "000901f471bcad48",
+        "00101c196a2c3598"
+      ]
+    },
+    "owner": {
+      "rows": 3474,
+      "unit": "text",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 3474,
+      "distinct_values": 2504,
+      "empty": 0,
+      "samples": [
+        "10474 (NFLD) LIMITED",
+        "18 Reeler Llc",
+        "2 SEA FISHERIES LLC"
+      ]
+    },
+    "owner_country": {
+      "rows": 20989,
+      "unit": "state",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 20989,
+      "distinct_values": 74,
+      "empty": 0,
+      "samples": [
+        "4493",
+        "Albania",
+        "Algerie"
+      ]
+    },
+    "owner_fp": {
+      "rows": 20989,
+      "unit": "text",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 20989,
+      "distinct_values": 16250,
+      "empty": 0,
+      "samples": [
+        "00034180bde59434",
+        "000901f471bcad48",
+        "00101c196a2c3598"
+      ]
+    },
+    "quota_bluefin": {
+      "rows": 438,
+      "unit": "kg",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 438,
+      "distinct_values": 146,
+      "empty": 0,
+      "min": "478.082468578431",
+      "max": "750000.0",
+      "samples": [
+        "1000.0",
+        "10000.0",
+        "10276.0"
+      ]
+    },
+    "quota_bluefin_total": {
+      "rows": 1,
+      "unit": "kg",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 1,
+      "distinct_values": 1,
+      "empty": 0,
+      "min": "25022393.2",
+      "max": "25022393.2",
+      "samples": [
+        "25022393.2"
+      ]
+    },
+    "quota_vessels": {
+      "rows": 1,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 1,
+      "distinct_values": 1,
+      "empty": 0,
+      "min": "438",
+      "max": "438",
+      "samples": [
+        "438"
+      ]
+    },
+    "reflagged_listed": {
+      "rows": 3,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 3,
+      "distinct_values": 3,
+      "empty": 0,
+      "min": "42",
+      "max": "238",
+      "samples": [
+        "209",
+        "238",
+        "42"
+      ]
+    },
+    "renamed_listed": {
+      "rows": 3,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 3,
+      "distinct_values": 3,
+      "empty": 0,
+      "min": "191",
+      "max": "4185",
+      "samples": [
+        "191",
+        "3525",
+        "4185"
+      ]
+    },
+    "rows_listed": {
+      "rows": 3,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 3,
+      "distinct_values": 3,
+      "empty": 0,
+      "min": "1444",
+      "max": "44980",
+      "samples": [
+        "1444",
+        "14685",
+        "44980"
+      ]
+    },
+    "valid_from": {
+      "rows": 26082,
+      "unit": "date",
+      "type": "date",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 26082,
+      "distinct_values": 442,
+      "empty": 0,
+      "min": "2006-01-01",
+      "max": "2025-08-18",
+      "samples": [
+        "2006-01-01",
+        "2006-06-01",
+        "2007-01-01"
+      ]
+    },
+    "valid_to": {
+      "rows": 26082,
+      "unit": "date",
+      "type": "date",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 26082,
+      "distinct_values": 185,
+      "empty": 0,
+      "min": "2024-12-31",
+      "max": "2030-07-31",
+      "samples": [
+        "2024-12-31",
+        "2025-05-01",
+        "2025-06-07"
+      ]
+    },
+    "vessel_type": {
+      "rows": 61083,
+      "unit": "state",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 61083,
+      "distinct_values": 25,
+      "empty": 0,
+      "samples": [
+        "---",
+        "AU",
+        "DO"
+      ]
+    },
+    "vessels_active": {
+      "rows": 73,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 73,
+      "distinct_values": 54,
+      "empty": 0,
+      "min": "1",
+      "max": "4151",
+      "samples": [
+        "1",
+        "10",
+        "1034"
+      ]
+    },
+    "vessels_all_expired": {
+      "rows": 1,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 1,
+      "distinct_values": 1,
+      "empty": 0,
+      "min": "14492",
+      "max": "14492",
+      "samples": [
+        "14492"
+      ]
+    },
+    "vessels_authorised": {
+      "rows": 1,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 1,
+      "distinct_values": 1,
+      "empty": 0,
+      "min": "186",
+      "max": "186",
+      "samples": [
+        "186"
+      ]
+    },
+    "vessels_inactive": {
+      "rows": 88,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 88,
+      "distinct_values": 65,
+      "empty": 0,
+      "min": "1",
+      "max": "17832",
+      "samples": [
+        "1",
+        "10",
+        "11"
+      ]
+    },
+    "vessels_inoperative": {
+      "rows": 48,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 48,
+      "distinct_values": 23,
+      "empty": 0,
+      "min": "1",
+      "max": "734",
+      "samples": [
+        "1",
+        "10",
+        "106"
+      ]
+    },
+    "vessels_listed": {
+      "rows": 7,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 7,
+      "distinct_values": 7,
+      "empty": 0,
+      "min": "11",
+      "max": "44980",
+      "samples": [
+        "11",
+        "1444",
+        "14685"
+      ]
+    },
+    "vessels_no_window": {
+      "rows": 1,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 1,
+      "distinct_values": 1,
+      "empty": 0,
+      "min": "7",
+      "max": "7",
+      "samples": [
+        "7"
+      ]
+    },
+    "vms_system": {
+      "rows": 10608,
+      "unit": "state",
+      "type": "text",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 10608,
+      "distinct_values": 9,
+      "empty": 0,
+      "samples": [
+        "3991,96",
+        "ARGOS",
+        "INMSAT"
+      ]
+    },
+    "windows_expired": {
+      "rows": 1,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 1,
+      "distinct_values": 1,
+      "empty": 0,
+      "min": "25033",
+      "max": "25033",
+      "samples": [
+        "25033"
+      ]
+    },
+    "windows_listed": {
+      "rows": 1,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 1,
+      "distinct_values": 1,
+      "empty": 0,
+      "min": "26081",
+      "max": "26081",
+      "samples": [
+        "26081"
+      ]
+    },
+    "windows_live": {
+      "rows": 1,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 1,
+      "distinct_values": 1,
+      "empty": 0,
+      "min": "1048",
+      "max": "1048",
+      "samples": [
+        "1048"
+      ]
+    },
+    "with_imo": {
+      "rows": 3,
+      "unit": "count",
+      "type": "number",
+      "series": [
+        "iccat.vessels.record"
+      ],
+      "entities": 3,
+      "distinct_values": 3,
+      "empty": 0,
+      "min": "302",
+      "max": "4288",
+      "samples": [
+        "2883",
+        "302",
+        "4288"
+      ]
+    }
+  },
+  "raw": {
+    "files": 0,
+    "bytes_on_disk": 0,
+    "capture_dates": 1,
+    "first_capture": "2026-09-11T04:28:50Z",
+    "last_capture": "2026-09-11T08:31:26Z"
+  }
+}
