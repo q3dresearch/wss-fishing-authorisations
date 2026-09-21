@@ -308,13 +308,9 @@ the charts live in git.
 
 ## Licences
 
-Two separate files, on purpose: code is MIT ([LICENSE](LICENSE)); the derived
-observations are CC-BY-4.0 ([LICENSE-DATA](LICENSE-DATA)), citation in
-[CITATION.cff](CITATION.cff). Captured content remains subject to ICCAT's own
-terms.
+Two separate files, on purpose: code is MIT ([LICENSE](LICENSE)); **the data is
+not CC-BY-4.0** ([LICENSE-DATA](LICENSE-DATA)). ICCAT publishes the Record of
+Vessels as a public compliance register under Rec. 25-12, which is a purpose
+rather than a licence, and states no redistribution grant. Attribute ICCAT, not
+this repository.
 
-> ICCAT, *Record of Vessels 20 metres in length overall or greater authorized
-> to operate in the Convention area* (Rec. 25-12), and the associated TROP,
-> SWO-MED and Carrier records. www.iccat.int
-
-Topics: `git-scraping` · `open-data` · `point-in-time-data` · `fisheries` · `iuu-fishing` · `rfmo`
