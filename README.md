@@ -306,6 +306,25 @@ the charts live in git.
 4. Run `capture-monthly` once by hand, confirm the bot's data commit lands,
    then let the cron take over.
 
+## Questions this exists to answer
+
+![All 8 questions here are answered or on a clock.](examples/charts/maturity.svg)
+
+**6 of these 8 are answered from captures already held.** 2 become answerable only as the series lengthens — the plate shows when. Every other one is on the clock, so the plate is a schedule rather than a wish list.
+
+
+| # | question | status |
+| --- | --- | --- |
+| Q1 | What does a vessel lose when it stops being authorised? | **answered** — it keeps its row and loses 54 columns → [the columns that vanish](examples/charts/the-columns-that-vanish.svg) |
+| Q2 | Are *inactive* and *inoperative* the same event? | **answered — no.** Two different exits → [how a vessel leaves](examples/charts/how-a-vessel-leaves.svg) |
+| Q3 | How much per-vessel history does ICCAT keep? | **answered** — exactly one previous flag and one previous name → [one hop of history](examples/charts/one-hop-of-history.svg) |
+| Q4 | Is deleting the rest a technical limit or a choice? | **answered — a choice.** Its sister commission keeps what ICCAT deletes, in the same file format → [ICCAT against IATTC](examples/charts/iccat-against-iattc.svg) |
+| Q5 | How many vessels on the ACTIVE record hold a valid authorisation? | **answered** — 14,492 of 14,685 hold nothing valid → [expired and still listed](examples/charts/expired-and-still-listed.svg) |
+| Q6 | Which flags hold the set-aside fleet? | **answered** — France and Türkiye hold half → [where the fleet went](examples/charts/where-the-fleet-went.svg) |
+| Q7 | Which vessels move between the three exports, and when? | needs 2+ captures. **The reason for capturing** — a vessel is in exactly one export and moves between them, and the move is the event nobody records |
+| Q8 | Does a reflagging chain survive beyond one hop? | needs 3+ captures — one hop is all ICCAT keeps, so a second hop only exists if this archive holds it |
+
+
 ## Figures
 
 Built by the scripts in [`examples/`](examples/), from the captures in this
