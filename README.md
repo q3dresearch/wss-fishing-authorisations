@@ -306,6 +306,54 @@ the charts live in git.
 4. Run `capture-monthly` once by hand, confirm the bot's data commit lands,
    then let the cron take over.
 
+## Figures
+
+Built by the scripts in [`examples/`](examples/), from the captures in this
+repository. Each caption is the figure's own title — nothing is restated here
+that the figure does not already say.
+
+**The same secretariat dates every enforcement exit and none of the others**
+
+![The same secretariat dates every enforcement exit and none of the others](examples/charts/a-choice-not-a-limit.svg)
+
+ICCAT's IUU workbook and its Record of Vessels — same website, same xlsx format, opposite retention.
+
+**14,492 of 14,685 vessels on the ACTIVE record hold nothing valid**
+
+![14,492 of 14,685 vessels on the ACTIVE record hold nothing valid](examples/charts/expired-and-still-listed.svg)
+
+Every authorisation window expired, and the vessel is still listed as active.
+
+**Inactive and inoperative are two different events**
+
+![Inactive and inoperative are two different events](examples/charts/how-a-vessel-leaves.svg)
+
+ICCAT's two exit lists hold different fleets. The ones it marks inoperative are nearly four times the length.
+
+**ICCAT deletes what its sister commission keeps**
+
+![ICCAT deletes what its sister commission keeps](examples/charts/iccat-against-iattc.svg)
+
+The same kind of register, on the other side of the Americas, pulled on the same day.
+
+**ICCAT keeps exactly one previous flag, and one previous name**
+
+![ICCAT keeps exactly one previous flag, and one previous name](examples/charts/one-hop-of-history.svg)
+
+Reflagging is the standard way a vessel escapes a sanction. The record holds a single hop.
+
+**A vessel keeps its row and loses 54 columns**
+
+![A vessel keeps its row and loses 54 columns](examples/charts/the-columns-that-vanish.svg)
+
+ICCAT's active export carries 87 columns. The inactive and inoperative exports carry 35.
+
+**France and Türkiye hold half of everything ICCAT has ever set aside**
+
+![France and Türkiye hold half of everything ICCAT has ever set aside](examples/charts/where-the-fleet-went.svg)
+
+Each flag's share of the 14,685 active vessels against its share of the 44,980 inactive.
+
 ## Licences
 
 Two separate files, on purpose: code is MIT ([LICENSE](LICENSE)); **the data is
